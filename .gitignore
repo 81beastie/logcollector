@@ -1,0 +1,4 @@
+# сборочные артефакты
+/logcollector
+/logcollector.exe
+*.zip
