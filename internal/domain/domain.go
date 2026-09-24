@@ -108,6 +108,7 @@ var EventLogNames = []string{
 	"Microsoft-Windows-TaskScheduler/Operational",
 	"Microsoft-Windows-WMI-Activity/Operational",
 	"Microsoft-Windows-Sysmon/Operational",
+	"Microsoft-Windows-WLAN-AutoConfig/Operational", // Wi-Fi: подключения с SSID (8001/8003)
 }
 
 // RemoteSource — след удалённого доступа: каталоги для копирования (glob-паттерны).

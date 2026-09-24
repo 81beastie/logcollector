@@ -82,7 +82,7 @@ func TestHumanBytes(t *testing.T) {
 }
 
 func TestEventLogNames_ContainsForensicCore(t *testing.T) {
-	for _, want := range []string{"Security", "System", "Microsoft-Windows-TerminalServices-RemoteConnectionManager/Operational", "Microsoft-Windows-PowerShell/Operational"} {
+	for _, want := range []string{"Security", "System", "Microsoft-Windows-TerminalServices-RemoteConnectionManager/Operational", "Microsoft-Windows-PowerShell/Operational", "Microsoft-Windows-WLAN-AutoConfig/Operational"} {
 		found := false
 		for _, n := range EventLogNames {
 			if n == want {

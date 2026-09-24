@@ -28,6 +28,15 @@ var runKeyPaths = []struct {
 	{"HKCU", `SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce`},
 }
 
+// networkListPaths — история сетей Wi-Fi: профили и сигнатуры точек доступа.
+var networkListPaths = []struct {
+	hive string
+	key  string
+}{
+	{"HKLM", `SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles`},
+	{"HKLM", `SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Signatures`},
+}
+
 // RunKey — одно значение автозапуска.
 type RunKey struct {
 	Hive string `json:"hive"`
@@ -64,7 +73,7 @@ func (c *Collector) Collect(ctx context.Context, dest string) []domain.Artifact 
 	}
 
 	var keys []RunKey
-	for _, rk := range runKeyPaths {
+	for _, rk := range append(runKeyPaths, networkListPaths...) {
 		if err := ctx.Err(); err != nil {
 			return arts
 		}
